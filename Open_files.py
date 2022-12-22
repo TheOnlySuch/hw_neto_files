@@ -24,8 +24,8 @@ def write_file(file1, file2, file3):
                 with open(x) as f:
                     number_of_rows=sum(1 for g in f)
                 with open(x) as f, open('result.txt', 'a') as res:
-                    res.write(f'Имя файла: {x}\nколичество строк:{number_of_rows}\n{f.read()}\n')
-                    
-
+                    res.write(f'{x}\n{number_of_rows}\n')
+                    for w,b in enumerate(f):
+                        res.write(f'Строка номер {w+1} файла номер {x.strip(".txt")}: {b}\n')
 
 write_file('1.txt', '2.txt', '3.txt')
