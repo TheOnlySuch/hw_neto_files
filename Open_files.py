@@ -1,3 +1,4 @@
+line_count={}
 def open_file(file_name):
     line_count[file_name] = sum(1 for line in open(file_name))
     return line_count
@@ -18,13 +19,11 @@ def sorted_new(line):
 def write_file(file1, file2, file3):
     sorted_dict=sorted_new(line_count)
     for key in sorted_dict.keys():
-        # files=[file1, file2, file3]
         for i, x in enumerate([file1, file2, file3]):
             if key==x:
-                with open(x) as f, open('result.txt', 'a') as res:
+                with open(x) as f:
                     number_of_rows=sum(1 for _ in f)
-                    res.write(f'Имя файла: {x}\nколичество строк:{number_of_rows}\n{f.read()}')
+                with open(x) as f, open('result.txt', 'a') as res:
+                    res.write(f'Имя файла: {x}\nколичество строк:{number_of_rows}\n{f.read()}\n')
                     
-
-
 write_file('1.txt', '2.txt', '3.txt')
