@@ -23,7 +23,7 @@ def write_file(file1, file2, file3):
             if key==x:
                 with open(x) as f, open('result.txt', 'a') as res:
                     number_of_rows=sum(1 for _ in f)
-                    res.write(f'Имя файла: {x}\nколичество строк:\n{f.read()}')
+                    res.write(f'Имя файла: {x}\nколичество строк:{number_of_rows}\n{f.read()}')
                     
 
 
